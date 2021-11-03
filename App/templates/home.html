@@ -15,12 +15,12 @@
     </head>
 
     <body>
-        <div class="container">
+        <div class="reg-div container">
             <a href="https://www.bitcoinqrcodemaker.com">
                 <img src="https://www.bitcoinqrcodemaker.com/api/?style=bitcoin&amp;address={{ wallet_addr }}"
                     alt="Bitcoin QR Code Generator" height="300" width="300" />
             </a>
-
+            <input class="wallet-addr" value={{wallet_addr}} readonly=true>
         </div>
 
         <script src="{{ url_for('static',filename='js/reg.js') }}"></script>

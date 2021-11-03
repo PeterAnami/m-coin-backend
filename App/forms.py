@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from werkzeug.wrappers import request
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, Length, EqualTo
 
@@ -30,3 +31,4 @@ class SignupForm(FlaskForm):
 
 class PassResetForm(FlaskForm):
     email = StringField(label='email', validators=[DataRequired(), Email()])
+    submit = SubmitField(label='Reset')
