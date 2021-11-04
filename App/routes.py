@@ -19,16 +19,19 @@ def index():
         try:
             confirm_pass = request.form['confirm_password']
             email = request.form['email']
-            print('Creating account...')
-            print((email, username, password, confirm_pass))
+
+            form = SignupForm()
+
         except:
-            print('Logging in...')
-            print((username, password))
+            form = SigninForm()
 
     except:
         email = request.form['email']
-        print('Resetting password...')
-        print(email)
+
+        form = PassResetForm()
+
+        if form.validate():
+            print('Form validation successfull...')
 
     return redirect('/home')
 
