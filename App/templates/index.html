@@ -21,6 +21,7 @@
             <div class="sub-title">Welcome!</div>
 
             <form action="/" method="post">
+                {{ form.hidded_tag() }}
                 <!-- sign in page -->
                 <div class="signin-field" id="login-page">
                     <div class="username">
@@ -49,6 +50,7 @@
             </form>
             <!-- sign up page -->
             <form action="/" method="post">
+                {{ form.hidded_tag() }}
                 <div class="signup-field" id="register-page">
                     <!-- email field -->
                     <div class="email">
@@ -99,6 +101,7 @@
 
             <!-- sign up page -->
             <form action="/" method="post">
+                {{ form.hidded_tag() }}
                 <div class="reset-field" id="reset-page">
                     <!-- email field -->
                     <div class="email">
