@@ -12,6 +12,24 @@ def index():
 
         return render_template('index.html', signin=signinform, signup=signupform, passreset=passresetform)
 
+    try:
+        username = request.form['username']
+        password = request.form['password']
+
+        try:
+            confirm_pass = request.form['confirm_password']
+            email = request.form['email']
+            print('Creating account...')
+            print((email, username, password, confirm_pass))
+        except:
+            print('Logging in...')
+            print((username, password))
+
+    except:
+        email = request.form['email']
+        print('Resetting password...')
+        print(email)
+
     return redirect('/home')
 
 
