@@ -1,6 +1,7 @@
 from . import app
 from flask import url_for, redirect, request, render_template
 from .forms import SigninForm, SignupForm, PassResetForm
+from flask_bcrypt import generate_password_hash, check_password_hash
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -20,20 +21,24 @@ def index():
             confirm_pass = request.form['confirm_password']
             email = request.form['email']
 
-            form = SignupForm()
+            form = SignupForm(request.form)
 
         except:
-            form = SigninForm()
+            form = SigninForm(request.form)
+
+            if form.validate():
+                username = form.username.data
+                hashed_password = str()
+
+            else:
+                print('Validation failed.')
 
     except:
         email = request.form['email']
 
-        form = PassResetForm()
+        form = PassResetForm(request.form)
 
-        if form.validate():
-            print('Form validation successfull...')
-
-    return redirect('/home')
+    return redirect('/')
 
 
 TEMP_ADDR = '3FZbgi29cpjq2GjdwV8eyHuJJnkLtktZc5'
