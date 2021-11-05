@@ -18,7 +18,8 @@ class Transactions(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     time = db.Column(db.DateTime, default=datetime.utcnow())
-    amount = db.Column(db.Float, nullable=False)
+    amount_btc = db.Column(db.Float, nullable=False)
+    amount_ksh = db.Column(db.Float, nullable=False)
     phone_number = db.Column(db.Integer, nullable=False)
     wallet_addr = db.Column(db.String(64), nullable=False)
     transaction_id = db.Column(db.String(64), nullable=False, primary_key=True)

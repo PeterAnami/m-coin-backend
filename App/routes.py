@@ -1,5 +1,5 @@
 from . import app, db
-from flask import url_for, redirect, request, render_template, flash
+from flask import redirect, request, render_template, flash
 from .forms import SigninForm, SignupForm, PassResetForm
 from flask_bcrypt import generate_password_hash, check_password_hash
 from . import User, Transactions as Trans
@@ -20,9 +20,7 @@ def index():
 
         try:
             email = request.form['email']
-
             form = SignupForm(request.form)
-            print(form)
 
             if not form.validate():
                 flash('Invalid input format. Please input correct credentials!')
