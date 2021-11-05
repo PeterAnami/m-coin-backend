@@ -25,16 +25,16 @@
 
             <ul>
                 <li>
-                    Transactions
+                    <a href="/home">Transactions</a>
                 </li>
                 <li>
-                    History
+                    <a href="/home">History</a>
                 </li>
                 <li>
-                    Settings
+                    <a href="#">Settings</a>
                 </li>
                 <li>
-                    T & C
+                    <a href="#">T & C</a>
                 </li>
             </ul>
 
@@ -45,23 +45,23 @@
                 {{ form.csrf_token }}
                 <div class="trans-form">
                     {{ form.amount_btc.label }}
-                    {{ form.amount_btc(class="user-input") }}
+                    {{ form.amount_btc(class="user-input", onchange="convertCurrency()", id="bit-val") }}
                 </div>
 
                 <div class="trans-form">
                     {{ form.amount_ksh.label }}
-                    {{ form.amount_ksh(class="user-input", readonly=true) }}
+                    {{ form.amount_ksh(class="user-input", readonly=true,id="fill-ksh") }}
                 </div>
 
                 <div class="trans-form">
                     {{ form.phone_number.label }}
-                    {{ form.phone_number(class="user-input") }}
+                    {{ form.phone_number(class="user-input", type="number") }}
                 </div>
                 <div class="trans-form">
                     {{ form.wallet_addr.label }}
                     {{ form.wallet_addr(class="wallet-addr", value=wallet_addr, readonly=true ) }}
                 </div>
-                {{ form.submit(class="btn-success")}}
+                {{ form.submit(class="proceed-btn", onclick="showPop()") }}
             </form>
         </div>
 

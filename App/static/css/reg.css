@@ -134,7 +134,7 @@ body{
 
 .sidebar{
     width: 400px;
-    height: 900px;
+    height: 800px;
     padding: 20px 35px 35px 35px;
     border-radius: 45px;
     background-color: #ecf0f3;
@@ -145,7 +145,7 @@ body{
 
 .content-body{
     width: 1250px;
-    height: 900px;
+    height: 800px;
     padding: 20px 35px 35px 35px;
     border-radius: 45px;
     background-color: #ecf0f3;
@@ -157,4 +157,59 @@ body{
 .trans-form{
     display: flex;
     align-content: center;
+}
+
+.proceed-btn{
+    outline:none;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    height: 60px;
+    margin-left: 16%;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "Lato",sans-serif;
+    color: #fff;
+    text-align: center;
+    background-color: #02c8db;
+    box-shadow: 3px 3px 8px #b1b1b1,
+    -3px -3px 8px #fff;
+    transition: all 0.5s;
+}
+
+.proceed-btn:hover{
+    background-color: rgb(27, 97, 0);
+}
+
+.sidebar a{
+    text-decoration: none;
+    font-family: "Lato",sans-serif;
+    font-size: 22px;
+}
+
+.user-input{
+    border: none;
+    background-color: #02c8db;
+    margin: 5px;
+    height: 38px;
+    font-size: 22px;
+    font-family: 'Courier New', Courier, monospace;
+    width: 30%;
+    margin-left: 30px;
+    cursor: pointer;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.wallet-addr{
+    border: none;
+    background-color: #02c8db;
+    width: 30%;
+    height: 36px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 20px;
+    text-align: center;
+    margin-left: 30px;
 }

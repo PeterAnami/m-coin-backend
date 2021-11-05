@@ -73,9 +73,21 @@ def home():
 
     form = TransactionForm(request.form)
 
-    if form.validate():
-        print('Form validated successfully...')
+    if not form.validate():
+        flash('Invalid information provided. Double-check and try again!')
+        return redirect('/home')
 
+    amount_btc = form.amount_btc.data
+    amount_ksh = form.amount_ksh.data
+    phone_number = form.phone_number.data
+    wallet_addr = form.wallet_addr.data
+
+    transaction = Trans(amount_btc=amount_btc, amount_ksh=amount_ksh,
+                        phone_number=phone_number, wallet_addr=wallet_addr)
+
+    db.session.add(transaction)
+    db.session.commit()
+    flash("Transaction started. Please check the progress in the history tab.")
     return render_template('home.html', wallet_addr=TEMP_ADDR, form=form)
 
 
