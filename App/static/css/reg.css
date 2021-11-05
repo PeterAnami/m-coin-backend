@@ -131,3 +131,30 @@ body{
     color: #aaa;
     font-size: 12px;
 }
+
+.sidebar{
+    width: 400px;
+    height: 900px;
+    padding: 20px 35px 35px 35px;
+    border-radius: 45px;
+    background-color: #ecf0f3;
+    box-shadow: 13px 13px 20px #cbced1,
+    -13px -13px 20px #fff;
+}
+
+
+.content-body{
+    width: 1250px;
+    height: 900px;
+    padding: 20px 35px 35px 35px;
+    border-radius: 45px;
+    background-color: #ecf0f3;
+    box-shadow: 13px 13px 20px #cbced1,
+    -13px -13px 20px #fff;
+    align-content: center;
+}
+
+.trans-form{
+    display: flex;
+    align-content: center;
+}

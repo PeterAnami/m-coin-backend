@@ -11,7 +11,7 @@ class User(db.Model):
     transactions = db.relationship('Transactions', backref='sender', lazy=True)
 
     def __repr__(self) -> str:
-        return f"User('{self.username}','{self.email}'"
+        return f"User('{self.username}','{self.email}')"
 
 
 class Transactions(db.Model):
@@ -25,4 +25,4 @@ class Transactions(db.Model):
     transaction_id = db.Column(db.String(64), nullable=False, primary_key=True)
 
     def __repr__(self) -> str:
-        return f"Transaction('{self.time}','{self.transaction_id}','{self.amount}','{self.phone_number}','{self.wallet_addr}'"
+        return f"Transaction('{self.time}','{self.transaction_id}','{self.amount_btc}','{self.amount_ksh}','{self.phone_number}','{self.wallet_addr}')"

@@ -1,6 +1,6 @@
 from . import app, db
 from flask import redirect, request, render_template, flash
-from .forms import SigninForm, SignupForm, PassResetForm
+from .forms import SigninForm, SignupForm, PassResetForm, TransactionForm
 from flask_bcrypt import generate_password_hash, check_password_hash
 from . import User, Transactions as Trans
 
@@ -19,28 +19,11 @@ def index():
         password = request.form['password']
 
         try:
-            email = request.form['email']
+            confirm_password = request.form['confirm_password']
+
             form = SignupForm(request.form)
 
-            if not form.validate():
-                flash('Invalid input format. Please input correct credentials!')
-                print('Validation failed')
-                return redirect('/')
-            else:
-                print('Form validation successfull...')
-                return redirect('/home')
-
-            email = form.email.data
-            username = form.username.data
-            password = form.password.data
-
-            new_user = User(id=123, email=email, username=username,
-                            password=generate_password_hash(password))
-
-            db.session.add(new_user)
-            db.session.commit()
-            print('New user created...')
-            flash('New account created. Please log in...', 'success')
+            print(f'Validation passed? {form.validate()}')
             return redirect('/')
 
         except:
@@ -52,8 +35,18 @@ def index():
                 return redirect('/')
 
             username = form.username.data
+
             user = User.query.filter_by(username=username).first()
-            hashed_password = str()
+
+            if not user:
+                flash('Username not found. Please try again...')
+                return redirect('/')
+
+            password = form.password.data
+
+            if password != user.password:
+                flash('Incorrect login credentials')
+                return redirect('/')
 
             return redirect('/home')
 
@@ -71,9 +64,19 @@ def index():
 TEMP_ADDR = '3FZbgi29cpjq2GjdwV8eyHuJJnkLtktZc5'
 
 
-@app.route('/home')
+@app.route('/home', methods=['GET', 'POST'])
 def home():
-    return render_template('home.html', wallet_addr=TEMP_ADDR)
+    if request.method == 'GET':
+        form = TransactionForm()
+
+        return render_template('home.html', wallet_addr=TEMP_ADDR, form=form)
+
+    form = TransactionForm(request.form)
+
+    if form.validate():
+        print('Form validated successfully...')
+
+    return render_template('home.html', wallet_addr=TEMP_ADDR, form=form)
 
 
 @app.route('/signout')
