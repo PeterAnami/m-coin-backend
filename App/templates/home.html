@@ -45,17 +45,17 @@
                 {{ form.csrf_token }}
                 <div class="trans-form">
                     {{ form.amount_btc.label }}
-                    {{ form.amount_btc(class="user-input", onchange="convertCurrency()", id="bit-val") }}
+                    {{ form.amount_btc(class="input-home", onchange="convertCurrency()", id="bit-val", type="number") }}
                 </div>
 
                 <div class="trans-form">
                     {{ form.amount_ksh.label }}
-                    {{ form.amount_ksh(class="user-input", readonly=true,id="fill-ksh") }}
+                    {{ form.amount_ksh(class="input-home", readonly=true,id="fill-ksh") }}
                 </div>
 
                 <div class="trans-form">
                     {{ form.phone_number.label }}
-                    {{ form.phone_number(class="user-input", type="number") }}
+                    {{ form.phone_number(class="input-home", type="number") }}
                 </div>
                 <div class="trans-form">
                     {{ form.wallet_addr.label }}

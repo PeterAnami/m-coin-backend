@@ -188,14 +188,26 @@ body{
     font-size: 22px;
 }
 
-.user-input{
+.input-home{
     border: none;
     background-color: #02c8db;
-    margin: 5px;
+    margin: 8px;
     height: 38px;
     font-size: 22px;
     font-family: 'Courier New', Courier, monospace;
     width: 30%;
+    margin-left: 30px;
+    cursor: pointer;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.user-input{
+    border: none;
+    background-color: #02c8db;
+    font-size: 22px;
+    font-family: 'Courier New', Courier, monospace;
+    width: 50%;
     margin-left: 30px;
     cursor: pointer;
     border-radius: 30px;
