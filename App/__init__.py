@@ -12,5 +12,5 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-from .routes import index, home, signout
 from .models import User,Transactions
+from .routes import index, home, signout
