@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from werkzeug.wrappers import request
 from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import DataRequired, InputRequired, Email, Length, EqualTo, ValidationError
+from wtforms.validators import InputRequired, Email, Length, EqualTo, ValidationError
 
 
 class SigninForm(FlaskForm):
@@ -16,20 +16,20 @@ class SigninForm(FlaskForm):
 
 class SignupForm(FlaskForm):
     email = StringField(label='email', validators=[
-                        DataRequired(), Email(), Length(min=6, max=24)])
+                        InputRequired(), Email(), Length(min=6, max=24)])
 
     username = StringField(label='username', validators=[
-                           DataRequired(), Length(min=4, max=64)])
+                           InputRequired(), Length(min=4, max=64)])
 
     password = PasswordField(label='password', validators=[
-                             DataRequired(), Length(min=4, max=24)])
+                             InputRequired(), Length(min=4, max=24)])
 
     confirm_password = PasswordField(label='confirm password', validators=[
-                                     DataRequired(), EqualTo(password)])
+                                     InputRequired(), EqualTo(password)])
 
     submit = SubmitField(label='SignUp')
 
 
 class PassResetForm(FlaskForm):
-    email = StringField(label='email', validators=[DataRequired(), Email()])
+    email = StringField(label='email', validators=[InputRequired(), Email()])
     submit = SubmitField(label='Reset')
