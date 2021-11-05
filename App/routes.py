@@ -85,8 +85,8 @@ def home():
     transaction = Trans(amount_btc=amount_btc, amount_ksh=amount_ksh,
                         phone_number=phone_number, wallet_addr=wallet_addr)
 
-    db.session.add(transaction)
-    db.session.commit()
+    # db.session.add(transaction)
+    # db.session.commit()
     flash("Transaction started. Please check the progress in the history tab.")
     return render_template('home.html', wallet_addr=TEMP_ADDR, form=form)
 
